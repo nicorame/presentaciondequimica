@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de CO - Villa Devoto</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de KaTeX para renderizar LaTeX (fórmulas) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" xintegrity="sha384-GvrNqO5r3/w/Iqg+Yc3G9u/o3v0V9Xo6r3z4l5z5e5c/uI" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" xintegrity="sha384-YI5+r3W8r0k7I2K8gK3k3o8C93g6uG4j9I5nFp0x7Q5Yg4z/yG7CjW7P/q3+q+qG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" xintegrity="sha384-93JvP1z0l9fN4Oq8jK3k3o8C93g6uG4j9I5nFp0x7Q5Yg4z/yG7CjW7P/q3+q+qG" crossorigin="anonymous"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-dark': '#003366',
+                        'red-alert': '#CC0000',
+                        'green-safe': '#008000',
+                        'orange-mid': '#FF8C00',
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        serif: ['Georgia', 'serif'],
+                    },
+                }
+            }
+        }
+
+        // Configuración para KaTeX: Renderiza las fórmulas después de que la página cargue
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                // Delimitadores para las fórmulas: $$display$$ y $inline$
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "\\[", right: "\\]", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false}
+                ],
+                throwOnError : false
+            });
+        });
+    </script>
+    <style>
+        /* Estilo para simular una presentación de diapositivas a pantalla completa */
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            padding: 4rem;
+            flex-direction: column;
+        }
+        .presentation-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+        }
+        .content-box {
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            width: 80%;
+        }
+    </style>
+</head>
+<body class="presentation-container font-sans bg-gray-50">
+
+    <!-- Diapositiva 1: Título y Presentación -->
+    <div class="slide bg-blue-dark text-white">
+        <div class="text-center content-box bg-white text-blue-dark">
+            <h1 class="text-5xl font-extrabold mb-4">Análisis Químico-Ambiental:</h1>
+            <h2 class="text-6xl font-extrabold mb-8">Intoxicación por Monóxido de Carbono (CO)</h2>
+            <p class="text-3xl font-light mb-8">Caso de Estudio: La Tragedia de Villa Devoto</p>
+            
+            <div class="mt-12 text-lg grid grid-cols-3 gap-4">
+                <div class="p-4 border-r border-gray-300">
+                    <p class="font-bold">Curso:</p> Química Ambiental - Unidad 10
+                </div>
+                <div class="p-4 border-r border-gray-300">
+                    <p class="font-bold">Fuente:</p> Diario Clarín, [Fecha de Publicación]
+                </div>
+                <div class="p-4">
+                    <p class="font-bold">Integrantes:</p> [Nombres de los Integrantes]
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diapositiva 2: La Noticia y el Problema -->
+    <div class="slide bg-white">
+        <h2 class="text-4xl font-bold mb-10 text-blue-dark">📰 El Problema: Combustión Incompleta y Confinamiento</h2>
+        <div class="content-box flex max-w-5xl">
+            <!-- Lado Izquierdo (Visual) -->
+            <div class="w-1/3 p-4 flex flex-col items-center justify-center border-r border-gray-200">
+                <div class="text-red-alert text-6xl mb-4" role="img" aria-label="Icono de Alerta de Gas">⚠️</div>
+                <p class="italic text-gray-500 text-center">[Imagen de un recorte de periódico con un titular trágico]</p>
+            </div>
+            <!-- Lado Derecho (Texto) -->
+            <div class="w-2/3 p-4">
+                <ul class="space-y-4 text-xl">
+                    <li class="flex items-start"><span class="text-blue-dark mr-3 font-extrabold">▶</span> 
+                        <p><span class="font-bold">El Suceso:</span> Cinco personas fallecieron por inhalación de <span class="text-red-alert font-extrabold">Monóxido de Carbono</span> en una vivienda.</p>
+                    </li>
+                    <li class="flex items-start"><span class="text-blue-dark mr-3 font-extrabold">▶</span>
+                        <p><span class="font-bold">La Causa Probable:</span> Falla de artefacto a gas (caldera/calefón) combinado con <span class="font-extrabold">ventilación obstruida</span>.</p>
+                    </li>
+                    <li class="flex items-start"><span class="text-blue-dark mr-3 font-extrabold">▶</span>
+                        <p><span class="font-bold">El Agente:</span> El $\mathbf{CO}$ es **incoloro, inodoro e inípido** (indetectable).</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diapositiva 3: Química I - La Fuente del Veneno -->
+    <div class="slide bg-gray-100">
+        <h2 class="text-4xl font-bold mb-10 text-blue-dark">🧪 Formación de $\mathbf{CO}$: Falla Estequiométrica (Reacción Redox)</h2>
+        <div class="content-box grid grid-cols-2 gap-8 max-w-6xl text-center text-xl">
+            <!-- Combustión Completa -->
+            <div class="p-6 bg-green-100 border-2 border-green-safe rounded-xl">
+                <h3 class="text-2xl font-bold text-green-safe mb-4">Combustión Completa (Ideal)</h3>
+                <p class="text-lg mb-4">Oxígeno ($\text{O}_2$) Suficiente</p>
+                <div class="text-center text-3xl font-mono p-4 bg-white rounded-lg shadow-inner">
+                    $$ \text{CH}_4 + 2\,\text{O}_2 \rightarrow \text{CO}_2 + 2\,\text{H}_2\text{O} $$
+                </div>
+                <p class="mt-4 text-green-safe font-semibold">[Llama Azul / Productos Seguros]</p>
+            </div>
+            <!-- Combustión Incompleta -->
+            <div class="p-6 bg-red-100 border-2 border-red-alert rounded-xl">
+                <h3 class="text-2xl font-bold text-red-alert mb-4">Combustión Incompleta (Falla)</h3>
+                <p class="text-lg mb-4">Oxígeno ($\text{O}_2$) Insuficiente</p>
+                <div class="text-center text-3xl font-mono p-4 bg-white rounded-lg shadow-inner">
+                    $$ \mathbf{2\,\text{C}(\text{s}) + O_2(\text{g}) \rightarrow 2\,\mathbf{CO}(\text{g})} $$
+                </div>
+                <p class="mt-4 text-red-alert font-semibold">[Llama Amarilla / **Producto Tóxico**]</p>
+            </div>
+        </div>
+        <p class="mt-8 text-2xl font-bold text-red-alert">"Si falta oxígeno ($\text{O}_2$), la reacción se detiene en el intermedio tóxico ($\mathbf{CO}$)."</p>
+    </div>
+
+    <!-- Diapositiva 4: Química II - El Ataque a la Salud -->
+    <div class="slide bg-white">
+        <h2 class="text-4xl font-bold mb-10 text-blue-dark">❤️ Toxicología: El Equilibrio Desplazado ($\text{HbCO}$)</h2>
+        <div class="content-box max-w-5xl flex items-center">
+            <!-- Gráfico y Fórmula -->
+            <div class="w-1/2 p-4 border-r border-gray-200">
+                <p class="text-center text-xl font-bold mb-4">Reacción con Hemoglobina ($\text{Hb}$)</p>
+                <div class="text-center text-4xl font-mono p-4 bg-gray-50 rounded-lg shadow">
+                    $$ \mathrm{Hb} + \mathbf{CO} \rightleftharpoons \mathbf{HbCO} $$
+                </div>
+                <div class="text-center mt-6">
+                    <div class="text-green-safe text-2xl">O₂ $\rightarrow$ $\text{HbO}_2$ (Transporte Normal)</div>
+                    <div class="text-red-alert text-2xl mt-2">CO $\rightarrow$ $\text{HbCO}$ (BLOQUEO)</div>
+                </div>
+            </div>
+            <!-- Datos de Impacto -->
+            <div class="w-1/2 p-4">
+                <div class="bg-red-alert text-white p-6 rounded-xl shadow-lg">
+                    <p class="text-2xl font-bold mb-3">¡AFINIDAD EXTREMA!</p>
+                    <p class="text-xl">La $\text{Hb}$ tiene una **afinidad 200-250 veces mayor** por el $\mathbf{CO}$ que por el $\text{O}_2$.</p>
+                </div>
+                <p class="mt-4 text-lg text-blue-dark">Esto desplaza el equilibrio químico, resultando en la formación masiva de $\text{Carboxihemoglobina}$ ($\text{HbCO}$), bloqueando el transporte de oxígeno y causando <span class="font-extrabold">Hipoxia</span>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diapositiva 5: Análisis de Concentración -->
+    <div class="slide bg-gray-100">
+        <h2 class="text-4xl font-bold mb-10 text-blue-dark">📏 El Poder de la Dilución: $\text{ppm}$ a Volumen</h2>
+        <div class="content-box max-w-5xl flex items-center">
+            <!-- Gráfico y pregunta -->
+            <div class="w-1/2 p-4 border-r border-gray-200 text-center">
+                <div class="text-5xl font-extrabold text-blue-dark">CÁLCULO RÁPIDO</div>
+                <p class="text-xl mt-4 font-semibold text-gray-700">Concentración letal: $\text{200 ppm}$</p>
+                <p class="text-xl font-semibold text-gray-700">Volumen de la Habitación: $40\ \text{m}^3$</p>
+            </div>
+            <!-- Cálculo -->
+            <div class="w-1/2 p-4 text-center">
+                <p class="text-lg mb-2">Definición: $\text{200 ppm} = \frac{\text{200 partes de CO}}{\text{1.000.000 partes de aire}}$</p>
+                <p class="text-lg mb-4">Cálculo: $40\ \text{m}^3 \times \frac{200}{1.000.000} =$</p>
+                <div class="text-center text-7xl font-extrabold text-red-alert p-4 bg-red-200 rounded-lg">
+                    $$ \mathbf{8\ \text{Litros}} $$
+                </div>
+                <p class="mt-4 text-xl font-bold text-blue-dark">¡Solo $8$ litros de $\mathbf{CO}$ diluidos son suficientes para causar la tragedia!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diapositiva 6: Mitigación I: Ingeniería de Procesos -->
+    <div class="slide bg-white">
+        <h2 class="text-4xl font-bold mb-10 text-blue-dark">💨 Mitigación del Camino: Dilución y Ventilación</h2>
+        <div class="content-box max-w-5xl flex items-start">
+            <!-- Gráfico -->
+            <div class="w-1/2 p-4 text-center">
+                <div class="text-5xl mb-4 text-blue-dark">🚪</div>
+                <p class="text-gray-500 italic">[Esquema de flujo de aire: flecha verde abajo (O₂) y flecha roja arriba (CO)]</p>
+                <div class="bg-blue-100 p-4 rounded-xl mt-6">
+                    <p class="text-xl font-bold text-blue-dark">Objetivo de Ingeniería:</p>
+                    <p class="text-lg">Para bajar de $200\ \text{ppm}$ a $50\ \text{ppm}$, se requieren <span class="font-extrabold">3 a 4 renovaciones completas</span> del aire del recinto (Balance de Masa).</p>
+                </div>
+            </div>
+            <!-- Soluciones -->
+            <div class="w-1/2 p-4">
+                <h3 class="text-2xl font-bold mb-4 text-orange-mid">Solución Técnica y Prevención:</h3>
+                <ul class="space-y-3 text-lg">
+                    <li class="flex items-start"><span class="text-green-safe mr-3 font-extrabold">✅</span> Rejillas de ventilación <span class="font-bold">siempre abiertas</span> (superiores e inferiores).</li>
+                    <li class="flex items-start"><span class="text-green-safe mr-3 font-extrabold">✅</span> Diseño de ventilación que garantice el <span class="font-bold">suministro de $\text{O}_2$</span> para la combustión estequiométrica.</li>
+                    <li class="flex items-start"><span class="text-red-alert mr-3 font-extrabold">❌</span> Nunca sellar o tapar las ventilaciones reglamentarias.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Diapositiva 7: Impacto Ambiental y Social -->
+    <div class="slide bg-gray-50">
+        <h2 class="text-4xl font-bold mb-10 text-blue-dark">🌍 Impacto: De la Toxicidad Aguda a la Conciencia Social</h2>
+        <div class="content-box max-w-5xl grid grid-cols-2 gap-8 text-center text-xl">
+            <!-- Columna 1: Salud -->
+            <div class="p-6 bg-red-50 border-t-4 border-red-alert rounded-xl shadow-lg">
+                <div class="text-red-alert text-5xl mb-4">🧠</div>
+                <h3 class="text-2xl font-bold mb-2 text-red-alert">Impacto en la Salud</h3>
+                <ul class="text-left list-disc list-inside space-y-2">
+                    <li><span class="font-bold">Toxicidad Aguda:</span> Muerte por asfixia celular.</li>
+                    <li><span class="font-bold">Secuelas:</span> Posibles daños neurológicos permanentes en sobrevivientes (por la hipoxia prolongada).</li>
+                </ul>
+            </div>
+            <!-- Columna 2: Social/Regulatorio -->
+            <div class="p-6 bg-blue-50 border-t-4 border-blue-dark rounded-xl shadow-lg">
+                <div class="text-blue-dark text-5xl mb-4">⚖️</div>
+                <h3 class="text-2xl font-bold mb-2 text-blue-dark">Impacto Social/Regulatorio</h3>
+                <ul class="text-left list-disc list-inside space-y-2">
+                    <li><span class="font-bold">Necesidad de Normativa:</span> Debate sobre la obligatoriedad del mantenimiento y detectores.</li>
+                    <li><span class="font-bold">Concientización:</span> Campañas públicas enfocadas en la indetectabilidad del $\text{CO}$.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Diapositiva 8: Estrategia de Solución (3 Capas) -->
+    <div class="slide bg-blue-dark text-white">
+        <h2 class="text-4xl font-bold mb-10">🛡️ Mitigación Integral: Cortando la Cadena de Fallas</h2>
+        <div class="content-box bg-white text-blue-dark p-10 max-w-4xl rounded-full">
+            <div class="flex flex-col space-y-8">
+                <!-- Capa 1: Fuente (Interior) -->
+                <div class="p-4 bg-red-200 border-4 border-red-alert rounded-full text-center shadow-2xl">
+                    <h3 class="text-2xl font-extrabold text-red-alert">1. CAPA FUENTE: Mantenimiento</h3>
+                    <p class="text-lg">Evita la <span class="font-bold">formación</span> inicial de $\text{CO}$ con revisiones anuales.</p>
+                </div>
+                <!-- Flecha o Conector -->
+                <div class="text-center text-orange-mid text-3xl font-extrabold">⬇</div>
+                <!-- Capa 2: Camino (Medio) -->
+                <div class="p-4 bg-orange-200 border-4 border-orange-mid rounded-full text-center shadow-2xl">
+                    <h3 class="text-2xl font-extrabold text-orange-mid">2. CAPA CAMINO: Ventilación</h3>
+                    <p class="text-lg">Evita la <span class="font-bold">acumulación</span> y diluye el gas.</p>
+                </div>
+                 <!-- Flecha o Conector -->
+                <div class="text-center text-green-safe text-3xl font-extrabold">⬇</div>
+                <!-- Capa 3: Receptor (Exterior) -->
+                <div class="p-4 bg-green-200 border-4 border-green-safe rounded-full text-center shadow-2xl">
+                    <h3 class="text-2xl font-extrabold text-green-safe">3. CAPA RECEPTOR: Detector de CO</h3>
+                    <p class="text-lg">Última línea de <span class="font-bold">alerta</span> y defensa.</p>
+                </div>
+            </div>
+        </div>
+        <p class="mt-8 text-xl font-light text-gray-300">Un sistema de seguridad robusto requiere la acción en las **tres capas** simultáneamente.</p>
+    </div>
+
+    <!-- Diapositiva 9: Rol del Ingeniero Industrial -->
+    <div class="slide bg-white">
+        <h2 class="text-4xl font-bold mb-10 text-blue-dark">👷 Rol del Ingeniero Industrial: Gestión del Riesgo</h2>
+        <div class="content-box max-w-6xl">
+            <div class="grid grid-cols-2 gap-6 text-center text-xl">
+                <!-- Columna 1 -->
+                <div class="p-4 bg-blue-100 rounded-lg shadow-md border-l-4 border-blue-dark">
+                    <div class="text-blue-dark text-4xl mb-2">[Image of a wrench/gear]</div>
+                    <h3 class="font-bold">Ingeniería de Mantenimiento</h3>
+                    <p class="text-sm">Implementar <span class="font-bold">protocolos preventivos</span> y *checklists* para asegurar la estequiometría correcta.</p>
+                </div>
+                <!-- Columna 2 -->
+                <div class="p-4 bg-blue-100 rounded-lg shadow-md border-l-4 border-blue-dark">
+                    <div class="text-blue-dark text-4xl mb-2">🌬️</div>
+                    <h3 class="font-bold">Seguridad Operacional</h3>
+                    <p class="text-sm">Calcular y auditar los <span class="font-bold">sistemas de ventilación</span> (Renovaciones de Aire por Hora).</p>
+                </div>
+                <!-- Columna 3 -->
+                <div class="p-4 bg-blue-100 rounded-lg shadow-md border-l-4 border-blue-dark">
+                    <div class="text-blue-dark text-4xl mb-2">[Image of a checklist]</div>
+                    <h3 class="font-bold">Gestión de la Calidad</h3>
+                    <p class="text-sm">Especificación y selección de detectores de $\text{CO}$ (Instrumentación).</p>
+                </div>
+                <!-- Columna 4 -->
+                <div class="p-4 bg-blue-100 rounded-lg shadow-md border-l-4 border-blue-dark">
+                    <div class="text-blue-dark text-4xl mb-2">[Image of a person teaching]</div>
+                    <h3 class="font-bold">Capacitación</h3>
+                    <p class="text-sm">Liderar la <span class="font-bold">concientización</span> del personal y usuarios sobre los peligros indetectables.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Diapositiva 10: Conclusiones y Preguntas -->
+    <div class="slide bg-blue-dark text-white">
+        <h2 class="text-5xl font-extrabold mb-10">Conclusiones</h2>
+        <div class="content-box bg-white text-blue-dark p-8 max-w-4xl space-y-6">
+            <p class="text-2xl font-bold">1. "Químicamente, el problema es una <span class="text-red-alert">estequiometría de combustión fallida</span> + un <span class="text-red-alert">equilibrio químico desplazado</span> en la sangre."</p>
+            <hr class="border-blue-dark">
+            <p class="text-2xl font-bold">2. "La Ingeniería Ambiental se enfoca en la prevención: <span class="text-green-safe">Mantenimiento (Fuente)</span>, <span class="text-orange-mid">Ventilación (Camino)</span> y <span class="text-red-alert">Detector (Receptor)</span>."</p>
+        </div>
+        <h3 class="text-4xl font-extrabold mt-16 text-yellow-300">¡Gracias!</h3>
+        <h3 class="text-3xl font-light mt-4">¿Preguntas?</h3>
+    </div>
+
+</body>
+</html>
